@@ -51,6 +51,7 @@
     </div>
     <script>
       var clipboard = require('clipboard');
+      var header = '<!-- this is some fancy comment -->';
       function selectParagraph(el) {
         // deselect all
         var selected = document.getElementsByClassName("selected");
@@ -58,7 +59,9 @@
             selected[i].className = '';
         };
         el.className = 'selected'
-        clipboard.setClipboard('<p>' + el.innerHTML + '</p>');
+        clipboard.setClipboard('<!-- this is some fancy comment -->\n' +
+          '<p>' + el.innerHTML + '</p>\n' +
+          '<!-- more comments, or anything else you\'d like to use. -->');
       }
     </script>
   </body>
